@@ -971,6 +971,7 @@ function buildPrintHTML(projects) {
     <div class="sum-box"><div class="sum-lbl">Kos Projek Siap</div><div class="sum-val">RM ${fmtN(projects.filter(p => p.status === 'Siap').reduce((s,p) => s + (parseFloat(p.kos)||0), 0))}</div></div>
     <div class="sum-box"><div class="sum-lbl">Kos Yang Diluluskan</div><div class="sum-val">RM ${fmtN(projects.filter(p => (parseFloat(p.jumlah_peruntukan)||0) > 0).reduce((s,p) => s + (parseFloat(p.jumlah_peruntukan)||0), 0))}</div></div>
     <div class="sum-box"><div class="sum-lbl">Jumlah Peruntukan</div><div class="sum-val">RM ${fmtN(totalAlc)}</div></div>
+    <div class="sum-box"><div class="sum-lbl">Baki Peruntukan</div><div class="sum-val">RM ${fmtN(totalAlc - projects.filter(p => p.status === 'Siap').reduce((s,p) => s + (parseFloat(p.kos)||0), 0))}</div></div>
     <div class="sum-box"><div class="sum-lbl">Dalam Pelaksanaan</div><div class="sum-val">${projects.filter(p => p.status === 'Dalam Pelaksanaan').length}</div></div>
     <div class="sum-box"><div class="sum-lbl">Tertangguh</div><div class="sum-val">${projects.filter(p => p.status === 'Tertangguh').length}</div></div>
   </div>
